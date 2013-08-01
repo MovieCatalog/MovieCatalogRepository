@@ -11,10 +11,7 @@ public class MainActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		System.out.println("Comit Test 2");
-		System.out.println("ARE BE");
-		System.out.println("Tup eclipse");
-		System.out.println("SHTE RABOTIME LI?");
+
 	}
 
 	@Override
