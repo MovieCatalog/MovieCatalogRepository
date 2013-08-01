@@ -14,6 +14,7 @@ public class MainActivity extends Activity
 		System.out.println("Comit Test 2");
 		System.out.println("ARE BE");
 		System.out.println("Tup eclipse");
+		System.out.println("SHTE RABOTIME LI?");
 	}
 
 	@Override
