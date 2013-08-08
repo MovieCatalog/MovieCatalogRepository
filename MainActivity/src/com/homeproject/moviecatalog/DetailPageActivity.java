@@ -10,8 +10,7 @@ public class DetailPageActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
+		setContentView(R.layout.detail_page_layout);
 	}
 
 	@Override
