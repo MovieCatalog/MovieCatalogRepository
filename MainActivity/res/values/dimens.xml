@@ -20,5 +20,6 @@
     <!-- Main page Relative layout dimension constants -->
     <dimen name="relative_title_text_size">16dp</dimen>
     <dimen name="relative_desc_text_size">12dp</dimen>
+    <dimen name="relative_margin">5dp</dimen>
 
 </resources>

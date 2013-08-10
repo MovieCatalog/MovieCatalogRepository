@@ -1,57 +1,39 @@
 package com.homeproject.moviecatalog;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import android.app.Activity;
-import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.ListView;
+
+import com.homeproject.adapter.RelativeItemAdapter;
 
 public class MainPageActivity extends Activity
 {
-	private static final int DESC_VIEW_ID = 2;
-
-	private static final int TITLE_VIEW_ID = 1;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		LayoutInflater from = LayoutInflater.from(this);
-		// RelativeLayout movieInformationRelativeLayout = (RelativeLayout) from.inflate(
-		// R.layout.movie_information_relative_layout,
-		// null,
-		// false);
-		
-		LinearLayout mainActivityView = (LinearLayout) from.inflate(R.layout.activity_main, null);
-		RelativeLayout relativeLayoutView = (RelativeLayout) from.inflate(	R.layout.movie_information_relative_layout,
-																			null);
+		ListView mainActivityListView = (ListView) findViewById(R.id.main_page_listview);
 
-		ImageView relativeLayoutImageView = (ImageView) relativeLayoutView.findViewById(R.id.relative_layout_image_view);
+		List<MovieInformationElement> moviesList = new LinkedList<MovieInformationElement>();
 
-		Bitmap image = BitmapFactory.decodeResource(null, R.drawable.five);
-		relativeLayoutImageView.setImageBitmap(image);
+		MovieInformationElement firstMovie = new MovieInformationElement();
+		MovieInformationElement secondMovie = new MovieInformationElement();
+		MovieInformationElement thirdMovie = new MovieInformationElement();
 
-		TextView relativeLayoutTitleView = (TextView) relativeLayoutView.findViewById(R.id.relative_layout_title);
-		relativeLayoutTitleView.setText("Title");
+		moviesList.add(firstMovie);
+		moviesList.add(secondMovie);
+		moviesList.add(thirdMovie);
 
-		mainActivityView.addView(relativeLayoutView);
-
-		// LayoutParams layoutParams = new LayoutParams(Gravity.CENTER);
-		// RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-		// RelativeLayout.LayoutParams.WRAP_CONTENT,
-		// 70);
+		RelativeItemAdapter adapter = new RelativeItemAdapter(this, moviesList);
+		mainActivityListView.setAdapter(adapter);
 	}
 
 	@Override
