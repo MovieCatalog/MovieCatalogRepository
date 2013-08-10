@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail_page_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- ImageView holding the movie image. -->
+
+    <ImageView
+        android:id="@+id/detail_page_image"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detail_page_margin"
+        android:contentDescription="@string/detail_page_image_description"
+        android:src="@drawable/ic_launcher" >
+    </ImageView>
+
+    <!-- RelativeLayout grouping the movie title, date, autor and genre. -->
+
+    <RelativeLayout
+        android:id="@+id/detail_page_relative_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- Movie title. -->
+
+        <TextView
+            android:id="@+id/detail_page_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/detail_page_margin"
+            android:gravity="center"
+            android:text="@string/lorem_ipsum_short"
+            android:textSize="@dimen/detail_page_title_text_size" >
+        </TextView>
+
+        <!-- Movie date. -->
+
+        <TextView
+            android:id="@+id/detail_page_date_string"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_page_title_text"
+            android:text="Date:"
+            android:textSize="10sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/detail_page_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/detail_page_date_string"
+            android:layout_below="@id/detail_page_title_text"
+            android:layout_marginLeft="@dimen/detail_page_margin_left"
+            android:layout_marginRight="@dimen/detail_page_margin_right"
+            android:layout_marginTop="@dimen/detail_page_margin_top"
+            android:layout_toRightOf="@id/detail_page_date_string"
+            android:text="@string/lorem_ipsum_super_short"
+            android:textSize="@dimen/detail_page_date_text_size" >
+        </TextView>
+
+        <!-- Movie genre -->
+
+        <TextView
+            android:id="@+id/detail_page_genre_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_page_title_text"
+            android:layout_marginLeft="@dimen/detail_page_margin_left"
+            android:layout_marginRight="@dimen/detail_page_margin_right"
+            android:layout_marginTop="@dimen/detail_page_margin_top"
+            android:layout_toRightOf="@id/detail_page_date_text"
+            android:text="@string/lorem_ipsum_super_short"
+            android:textSize="@dimen/detail_page_genre_text_size" >
+        </TextView>
+
+        <!-- Movie actors -->
+
+        <TextView
+            android:id="@+id/detail_page_actors_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_page_title_text"
+            android:layout_marginLeft="@dimen/detail_page_margin_left"
+            android:layout_marginRight="@dimen/detail_page_margin_right"
+            android:layout_marginTop="@dimen/detail_page_margin_top"
+            android:layout_toRightOf="@id/detail_page_genre_text"
+            android:text="@string/lorem_ipsum_super_short"
+            android:textSize="@dimen/detail_page_autor_text_size" >
+        </TextView>
+    </RelativeLayout>
+
+    <!-- ScrollView holding a TextView for the movie description. -->
+
+    <ScrollView
+        android:id="@+id/detail_page_description_scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/detail_page_padding" >
+
+        <!-- Movie description. -->
+
+        <TextView
+            android:id="@+id/detail_page_description_text_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/detail_page_margin_left"
+            android:layout_marginRight="@dimen/detail_page_margin_right"
+            android:layout_marginTop="@dimen/detail_page_margin_top"
+            android:background="@drawable/border"
+            android:padding="@dimen/detail_page_padding"
+            android:text="@string/lorem_ipsum_long_text"
+            android:textSize="@dimen/detail_page_description_text_size" >
+        </TextView>
+    </ScrollView>
+
+</LinearLayout>
