@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.mtp.MtpConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +22,13 @@ public class RelativeItemAdapter extends BaseAdapter
 
 	private LayoutInflater inflater;
 
+	private Activity activity;
+
 	public RelativeItemAdapter(Activity activity, List<MovieInformationElement> moviesList)
 	{
+		this.activity = activity;
 		this.moviesList = moviesList;
+		
 		inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 
@@ -63,6 +66,8 @@ public class RelativeItemAdapter extends BaseAdapter
 			holder.titleTextView = (TextView) convertView.findViewById(R.id.relative_layout_title);
 
 			holder.descTextView = (TextView) convertView.findViewById(R.id.relative_layout_description);
+			
+			holder.imageView = (ImageView) convertView.findViewById(R.id.relative_layout_image_view);
 
 			convertView.setTag(holder);
 		}
@@ -75,6 +80,8 @@ public class RelativeItemAdapter extends BaseAdapter
 		{
 			holder.titleTextView.setText(currentMovie.getMovieTitle());
 			holder.descTextView.setText(currentMovie.getMovieDesc());
+			Bitmap bitmapImage = BitmapFactory.decodeResource(activity.getResources(), R.drawable.five);
+			holder.imageView.setImageBitmap(bitmapImage);
 		}
 		return convertView;
 	}
