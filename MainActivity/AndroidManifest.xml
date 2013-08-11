@@ -22,8 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.homeproject.moviecatalog.DetailPageActivity"
-			 android:launchMode="singleInstance">
+        <activity
+            android:name="com.homeproject.moviecatalog.DetailPageActivity"
+            android:launchMode="singleInstance" >
         </activity>
     </application>
 
