@@ -80,7 +80,7 @@ public class RelativeItemAdapter extends BaseAdapter
 		{
 			holder.titleTextView.setText(currentMovie.getMovieTitle());
 			holder.descTextView.setText(currentMovie.getMovieDesc());
-			Bitmap bitmapImage = BitmapFactory.decodeResource(activity.getResources(), R.drawable.five);
+			Bitmap bitmapImage = BitmapFactory.decodeResource(activity.getResources(), currentMovie.getMovieImagePath());
 			holder.imageView.setImageBitmap(bitmapImage);
 		}
 		return convertView;

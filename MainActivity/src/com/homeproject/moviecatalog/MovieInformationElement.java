@@ -1,14 +1,19 @@
 package com.homeproject.moviecatalog;
 
-public class MovieInformationElement
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class MovieInformationElement implements Parcelable
 {
 	private String movieDesc = "No description available";
 
 	private String movieActors = "No information about actors available";
 
-	private String movieGenre;
+	private String movieGenre = "Action/Porn/Comedy";
 
-	private String movieImageUrl;
+	private int movieImagePath = R.drawable.image;
+
+	private String movieAirDate = "20.05.2013";
 
 	private String movieTitle = "No title available";
 
@@ -16,19 +21,23 @@ public class MovieInformationElement
 			String movieDesc,
 			String movieActors,
 			String movieGenre,
-			String movieImageUrl)
+			String movieAirDate,
+			int movieImagePath)
 	{
+
 		this.movieTitle = movieTitle;
 		this.movieDesc = movieDesc;
 		this.movieActors = movieActors;
 		this.movieGenre = movieGenre;
-		this.movieImageUrl = movieImageUrl;
+		this.movieAirDate = movieAirDate;
+		this.movieImagePath = movieImagePath;
+
 	}
 
-	public MovieInformationElement(String movieTitle, String movieImageUrl)
+	public MovieInformationElement(String movieTitle, int movieImagePath)
 	{
 		this.movieTitle = movieTitle;
-		this.movieImageUrl = movieImageUrl;
+		this.movieImagePath = movieImagePath;
 	}
 
 	public MovieInformationElement()
@@ -76,13 +85,72 @@ public class MovieInformationElement
 		this.movieGenre = movieGenre;
 	}
 
-	public String getMovieImageUrl()
+	public String getMovieAirDate()
 	{
-		return movieImageUrl;
+		return movieAirDate;
 	}
 
-	public void setMovieImageUrl(String movieImageUrl)
+	public void setMovieAirDate(String movieAirDate)
 	{
-		this.movieImageUrl = movieImageUrl;
+		this.movieAirDate = movieAirDate;
 	}
+
+	public int getMovieImagePath()
+	{
+		return movieImagePath;
+	}
+
+	public void setMovieImageUrl(int movieImagePath)
+	{
+		this.movieImagePath = movieImagePath;
+	}
+
+	@Override
+	public int describeContents()
+	{
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags)
+	{
+		dest.writeString(movieTitle);
+		dest.writeString(movieDesc);
+		dest.writeString(movieActors);
+		dest.writeString(movieGenre);
+		dest.writeString(movieAirDate);
+		dest.writeInt(movieImagePath);
+
+	}
+
+	public MovieInformationElement(Parcel source)
+	{
+
+		movieTitle = source.readString();
+		movieDesc = source.readString();
+		movieActors = source.readString();
+		movieGenre = source.readString();
+		movieAirDate = source.readString();
+		movieImagePath = source.readInt();
+
+	}
+
+	public static final Parcelable.Creator CREATOR = new Parcelable.Creator()
+	{
+
+		@Override
+		public MovieInformationElement createFromParcel(Parcel source)
+		{
+			// TODO Auto-generated method stub
+			return new MovieInformationElement(source);
+		}
+
+		@Override
+		public MovieInformationElement[] newArray(int size)
+		{
+			// TODO Auto-generated method stub
+			return new MovieInformationElement[size];
+		}
+	};
 }
